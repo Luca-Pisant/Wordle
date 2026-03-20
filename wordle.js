@@ -85,28 +85,35 @@ function update() {
     for (let c = 0; c < width; c++) {
         let currentTile = document.getElementById(row.toString() + "-" + c.toString());
         let letter = currentTile.innerText;
+        setTimeout(() => {
+            currentTile.classList.add("flip");
 
-        if (word[c] === letter) {
-            currentTile.classList.add("correct");
-            correct +=1;
-            letterCount[letter] -= 1;
-        }
-        if (correct === width) {
-            gameOver = true;
-        }
+            if (word[c] === letter) {
+                currentTile.classList.add("correct");
+                correct += 1;
+                letterCount[letter] -= 1;
+            }
+            if (correct === width) {
+                gameOver = true;
+            }
+        }, c * 200);
     }
 
     for (let c = 0; c < width; c++) {
         let currentTile = document.getElementById(row.toString() + "-" + c.toString());
         let letter = currentTile.innerText;
-        if (!currentTile.classList.contains("correct")) {
-            if (word.includes(letter) && letterCount[letter] > 0) {
-                currentTile.classList.add("present")
-                letterCount[letter] -= 1;
-            } else {
-                currentTile.classList.add("absent")
+        setTimeout(() => {
+            currentTile.classList.add("flip");
+
+            if (!currentTile.classList.contains("correct")) {
+                if (word.includes(letter) && letterCount[letter] > 0) {
+                    currentTile.classList.add("present");
+                    letterCount[letter] -= 1;
+                } else {
+                    currentTile.classList.add("absent");
+                }
             }
-        }
+        }, c * 200);
     }
     row += 1;
     column = 0;

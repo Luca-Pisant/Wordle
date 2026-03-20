@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cee1baf-9c50-4d50-ab3b-77b42e197848" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wordle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wordle.js" afterDir="false" />
+    <list default="true" id="4cee1baf-9c50-4d50-ab3b-77b42e197848" name="Changes" comment="Basics 1.0">
+      <change beforePath="$PROJECT_DIR$/.idea/Wordle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Wordle.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordle.css" beforeDir="false" afterPath="$PROJECT_DIR$/wordle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordle.js" beforeDir="false" afterPath="$PROJECT_DIR$/wordle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Luca-Pisant"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Luca-Pisant/Wordle.git",
+    "accountId": "9f4b86d8-e9dd-45a2-b967-6564f8a2c5e1"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5,
   "fromUser": false
@@ -58,11 +72,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773966868675</updated>
-      <workItem from="1773966869699" duration="6187000" />
+      <workItem from="1773966869699" duration="13302000" />
     </task>
+    <task id="LOCAL-00001" summary="Basics 1.0">
+      <option name="closed" value="true" />
+      <created>1773973184357</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773973184357</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Basics 1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basics 1.0" />
   </component>
 </project>

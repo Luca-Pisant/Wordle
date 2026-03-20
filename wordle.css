@@ -35,6 +35,28 @@ hr {
     align-items: center;
 }
 
+@keyframes tileFlip {
+    0% {
+        transform: rotatex(0deg);
+    }
+    50% {
+        transform: rotatex(90deg);
+    }
+    100% {
+        transform: rotatex(0deg);
+    }
+}
+
+.flip {
+    animation: tileFlip 0.5s ease-in-out forwards;
+}
+
+.correct, .present, .absent {
+    transition: background-color 0s 0.25s, border-color 0s 0.25s, color 0s 0.25s;
+    color: white;
+    border-color: lightgray;
+}
+
 .correct {
     background-color: #6AAA64;
     color: white;
