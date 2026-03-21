@@ -1,1 +1,1 @@
-[Play Here](https://luca-pisant.github.io/Wordle/)
+[Play here](https://luca-pisant.github.io/Wordle/)
