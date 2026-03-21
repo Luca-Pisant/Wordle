@@ -28,32 +28,82 @@ function initialize() {
         }
     }
 
-    document.addEventListener("keyup", (e) => {
-        if (gameOver) return;
+    let keyboard = [
+        ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+        ["A", "S", "D", "F", "G", "H", "J", "K", "L", " "],
+        ["Enter", "Z", "X", "C", "V", "B", "N", "M", "⌫" ]
+    ]
 
-        if ("KeyA" <= e.code && e.code <= "KeyZ") {
-            if (column < width) {
-                let currentTile = document.getElementById(row.toString() + "-" + column.toString());
-                if (currentTile.innerText === "") {
-                    currentTile.innerText = e.code[3];
-                    column += 1;
-                }
+    for (let i = 0; i < keyboard.length; i++) {
+        let currentRow = keyboard[i];
+        let keyboardRow = document.createElement("div");
+        keyboardRow.classList.add("keyboard-row");
+
+        for (let j=0; j < currentRow.length; j++) {
+            let keyTile = document.createElement("div");
+            let key = currentRow[j];
+            keyTile.innerText = key;
+            if (key === "Enter") {
+                keyTile.id = "Enter";
+            } else if (key === "⌫") {
+                keyTile.id = "Backspace";
+            } else if ("A" <= key && key <= "Z") {
+                keyTile.id = "Key" + key;
             }
-        } else if (e.code === "Backspace") {
-            if (0 < column && column <= width) {
-                column -= 1;
+
+            keyTile.addEventListener("click", processKey);
+
+            if (key === "Enter") {
+                keyTile.classList.add("enter-key-tile");
+            } else {
+                keyTile.classList.add("key-tile");
             }
-            let currentTile = document.getElementById(row.toString() + "-" + column.toString());
-            currentTile.innerText = "";
-        } else if (e.code === "Enter") {
-            update();
+
+            keyboardRow.appendChild(keyTile);
         }
 
-        if (!gameOver && row === height) {
-            gameOver = true;
+        document.body.appendChild(keyboardRow);
+    }
+
+    document.addEventListener("keyup", (e) => {
+        processInput(e);
+    })
+}
+
+function processKey() {
+    e = {code: this.id};
+    processInput(e);
+}
+
+function processInput(e) {
+    if (gameOver) return;
+
+    if ("KeyA" <= e.code && e.code <= "KeyZ") {
+        if (column < width) {
+            let currentTile = document.getElementById(row.toString() + "-" + column.toString());
+            if (currentTile.innerText === "") {
+                currentTile.innerText = e.code[3];
+                column += 1;
+            }
+        }
+    } else if (e.code === "Backspace") {
+        if (0 < column && column <= width) {
+            column -= 1;
+        }
+        let currentTile = document.getElementById(row.toString() + "-" + column.toString());
+        currentTile.innerText = "";
+    } else if (e.code === "Enter") {
+        update();
+    }
+
+    if (!gameOver && row === height) {
+        let guess = "";
+        gameOver = true;
+        if (guess !== word) {
             document.getElementById("answer").innerText = word;
         }
-    })
+    }
+
 }
 
 function update() {
@@ -90,6 +140,10 @@ function update() {
 
             if (word[c] === letter) {
                 currentTile.classList.add("correct");
+
+                let keyTile = document.getElementById("Key" + letter);
+                keyTile.classList.remove("present")
+                keyTile.classList.add("correct");
                 correct += 1;
                 letterCount[letter] -= 1;
             }
@@ -108,9 +162,15 @@ function update() {
             if (!currentTile.classList.contains("correct")) {
                 if (word.includes(letter) && letterCount[letter] > 0) {
                     currentTile.classList.add("present");
+                    let keyTile = document.getElementById("Key" + letter);
+                    if (!keyTile.classList.contains("correct")) {
+                        keyTile.classList.add("present")
+                    }
                     letterCount[letter] -= 1;
                 } else {
                     currentTile.classList.add("absent");
+                    let keyTile = document.getElementById("Key" + letter);
+                    keyTile.classList.add("absent");
                 }
             }
         }, c * 200);
